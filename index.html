@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CRLIX Login</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: black;
+        color: white;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .box {
+        background: #111;
+        padding: 30px;
+        border-radius: 10px;
+        width: 300px;
+        text-align: center;
+        box-shadow: 0 0 20px red;
+    }
+
+    input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background: red;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .switch {
+        margin-top: 10px;
+        cursor: pointer;
+        color: red;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    /* CRACKED PAGE */
+    .cracked {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: black;
+        color: red;
+        font-size: 40px;
+        text-align: center;
+        text-shadow: 0 0 20px red;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container" id="authBox">
+    <div class="box">
+        <h2 id="title">Login</h2>
+
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+
+        <p class="switch" onclick="toggle()">Don't have account? Sign Up</p>
+    </div>
+</div>
+
+<div class="cracked" id="crackedPage">
+    <h1>💀 THIS WEBSITE HAS BEEN CRACKED BY CRLIX 💀</h1>
+</div>
+
+<script>
+    let isLogin = true;
+
+    function toggle() {
+        isLogin = !isLogin;
+        document.getElementById("title").innerText = isLogin ? "Login" : "Sign Up";
+        document.querySelector("button").innerText = isLogin ? "Login" : "Sign Up";
+        document.querySelector(".switch").innerText = isLogin 
+            ? "Don't have account? Sign Up" 
+            : "Already have account? Login";
+    }
+
+    function login() {
+        let user = document.getElementById("username").value;
+        let pass = document.getElementById("password").value;
+
+        if(user !== "" && pass !== "") {
+            document.getElementById("authBox").style.display = "none";
+            document.getElementById("crackedPage").style.display = "flex";
+        } else {
+            alert("Fill all fields!");
+        }
+    }
+</script>
+
+</body>
+</html>
